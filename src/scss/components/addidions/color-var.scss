@@ -1,0 +1,12 @@
+
+:root{
+  --background-color-main:white;
+  --font-color-main:black;
+  --color-active_link:blue;
+  --outline-color:#728DABFF;
+
+}
+:root[theme='dark'] {
+  --background-color-main:#6B6B6C;
+  --color-active_link: rgba(56, 110, 232, 0.2);
+}

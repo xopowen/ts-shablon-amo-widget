@@ -1,0 +1,144 @@
+{
+  "_comment": "comment text goes here...",
+  "widget": {
+    "name": "widget.name",
+    "description": "widget.description",
+    "short_description": "widget.short_description",
+    "version": "1.0.1",
+    "interface_version": 2,
+    "_comment": "(true/false)нужно ли собирать js объект виджет 1 раз за сеанс работы с amocrm.",
+    "_comment": "При инициализации виджета вызываются функции render(), init() и bind_actions()",
+    "_comment":"Если же общего для всех страниц контекста нет, то лучше ставить в false.",
+    "init_once": false,
+    "locale": [
+      "ru",
+      "en"
+    ],
+    "_comment": "(true/false) Если выбрано false, то виджет будет отображаться только в списке виджетов",
+    "_comment": " не запрашивая настройки или установку в аккаунте",
+    "installation": true,
+    "support": {
+      "link": "https://www.amocrm.com",
+      "email": "support@amocrm.com"
+    },
+    "_comment": "(true/false) True изменяет название кнопки \"Установить\" на \"Посмотреть\". ",
+    "_comment": "Это необходимо, когда виджет носит информационный характер",
+    "is_showcase": false
+  },
+
+  "_comment":"Интерфейсы в которых должен быть отображен виджет",
+  "_comment": "lcard, cucard, ccard, comcard - Карточки сделок, покупателей, контактов и компаний,",
+  "_comment": "llist, culist, clist, tlist - Списки сделок, покупателей, контактов и задач,,",
+  "_comment": "settings - Cтраница установки и настройки виджетов,,",
+  "_comment": "advanced_settings - Страница расширенных настроек виджета,,",
+  "_comment": "card_sdk - SDK карточки (требует lcard, ccard, comcard для работы в карточках соответствующих сущностей),,",
+  "_comment": "catalogs - SDK списков,,",
+  "_comment": "digital_pipeline - Настройки Digital Pipeline,,",
+  "_comment": "lead_sources - Источники сделок,,",
+  "_comment": "whatsapp_modal - Модальное окно интеграций, работающих с WhatsApp,,",
+  "_comment": "everywhere - Виджет будет инициализироваться везде,,",
+  "_comment": "sms - Виджет может быть использован в качестве отправителя системных SMS сообщений,,",
+  "_comment": "mobile_card - Виджет доступен в мобильном приложении. Подробнее,,",
+  "_comment": "amoforms - Виджет доступен в веб-формах. Подробнее,",
+  "_comment": "everywhere - везде",
+  "locations": [
+    "ccard-1",
+    "clist-0",
+    "lcard-1",
+    "llist-0",
+    "settings"
+  ],
+  "_comment": "Блок, содержит все основные настройки для тура виджета.",
+  "tour": {
+    "_comment":"указывает на то, нужно ли включать тур для виджета.only true",
+    "is_tour": true,
+    "_comment":"Содержит ключи локализаций для картинок тура",
+    "tour_images": {
+      "_comment":"Содержит путь до изображений для тура в зависимости от локализации",
+      "ru": [
+        "/images/logo_main.png",
+        "/images/logo_main.png",
+        "/images/logo_main.png"
+      ]
+    },
+    "_comment":"содержащего краткий текст, который будет выведен в момент показа тура виджет",
+    "tour_description": "widget.tour_description"
+  },
+  "_comment":"Массив настроек виджета, доступных пользователю, т.е.",
+  "_comment":" поля, которые будут присутствовать в окне настроек виджета и заполняться пользователем",
+  "settings": {
+    "_comment":"пример",
+    "_comment":"login: {",
+    "_comment":"Название поля (только ссылка на элемент в lang файле)",
+    "_comment":  "name :  settings.login",
+    "_comment":"{text:Текстовое поле,pass:Поле для ввода пароля ,users:Будет выведен список пользователей системы с 1 текстовым полем на каждого,user_lp:Будет выведен список пользователей системы с 2 полями (login,password),custom - собственной программной логики}",
+    "_comment":  "'type': 'text'",
+    "_comment": "true/false, обязательность заполнения поля пользователем.",
+    "_comment":  "'required',: true",
+    "_comment": "},",
+    "api_key": {
+      "name": "settings.api_key",
+      "type": "text",
+      "required": true
+    },
+    "account": {
+      "name": "settings.account",
+      "type": "text",
+      "required": true
+    }
+  },
+  "_comment": "not required,Блок настройки виджетов в digital pipeline. ",
+  "dp": {
+    "settings": {
+      "message": {
+        "name": "dp.message",
+        "type": "text",
+        "required": true
+      }
+    },
+    "action_multiple": false,
+    "webhook_url": "https://example.com/webhook"
+  },
+  "advanced": {
+    "_comment":"Ключ в ланг файле для названия страницы виджета в настройках.",
+    "title": "advanced.title"
+  },
+  "_comment":"not required,Параметры для добавления виджета в конструкторе Salesbot.",
+  "salesbot_designer": {
+    "handler_code": {
+      "name": "salesbot.handler_name",
+      "settings": {
+        "button_title": {
+          "name": "salesbot.button_title",
+          "type": "text",
+          "default_value": "salesbot.button_title_default_value",
+          "manual": true
+        },
+        "button_caption": {
+          "name": "salesbot.button_caption",
+          "type": "text",
+          "default_value": "salesbot.button_caption_default_value",
+          "manual": true
+        },
+        "text": {
+          "name": "salesbot.text",
+          "type": "text"
+        },
+        "number": {
+          "name": "salesbot.number",
+          "type": "numeric"
+        },
+        "url": {
+          "name": "salesbot.url",
+          "type": "url"
+        }
+      }
+    }
+  },
+  "_comment": "not required",
+  "sms": {
+    "_comment":"Адрес, на который будет отправлен запрос для отправки системного SMS",
+    "endpoint": ""
+  },
+  "_comment": "see move - https://www.amocrm.ru/developers/content/integrations/structure#manifest"
+}
